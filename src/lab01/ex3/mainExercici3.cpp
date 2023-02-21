@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stdexcept>
 #include "Estudiant.h"
 using namespace std;
 void get_info(int &comptador)
@@ -37,7 +38,14 @@ int main(int argc, char const *argv[])
             cout << "Fins a la propera!" << endl;
             break;
         case 2:
-            get_info(comptador);
+            try
+            {
+                get_info(comptador);
+            }
+            catch (const invalid_argument& ex)
+            {
+                cerr << ex.what() << endl;
+            };
             break;
         }
     } while (option != 1);

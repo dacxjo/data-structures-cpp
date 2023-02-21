@@ -5,6 +5,7 @@ private:
     std::string nom;
     int any;
     int nombreAsignatures;
+    int anyActual;
 
 public:
     Estudiant();

@@ -1,17 +1,30 @@
 #include <iostream>
 #include "Estudiant.h"
+#include <ctime>
+#include <stdexcept>
 using namespace std;
 
-Estudiant::Estudiant() {}
+Estudiant::Estudiant() {
+    time_t t = time(NULL);
+    tm* tPtr = localtime(&t);
+    this->anyActual = (tPtr->tm_year)+1900;
+}
 Estudiant::Estudiant(string nom, int anyNaixement, int numAssignatures)
 {
+    time_t t = time(NULL);
+    tm* tPtr = localtime(&t);
+    this->anyActual = (tPtr->tm_year)+1900;
+    if(anyNaixement > this->anyActual || anyNaixement < 0 || anyNaixement == 0){
+        throw invalid_argument("Any de naixement incorrecte");
+    }
     this->nom = nom;
     this->any = anyNaixement;
     this->nombreAsignatures = numAssignatures;
 }
 int Estudiant::getEdad()
 {
-    return 2023 - this->any;
+
+    return this->anyActual - this->any;
 }
 void Estudiant::print()
 {
