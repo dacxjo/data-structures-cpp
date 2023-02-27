@@ -41,7 +41,7 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
 void show_resume(int comptadorEstudiants, int comptadorProfessors)
 {
     cout << "Estudiants creats: " << comptadorEstudiants << ", Professor creats: " << comptadorProfessors << endl;
-    cout << endl
+    cout << endl;
 }
 
 int main(int argc, char const *argv[])
@@ -73,6 +73,7 @@ int main(int argc, char const *argv[])
             catch (const invalid_argument &ex)
             {
                 cerr << ex.what() << endl;
+                cout << endl;
             };
             break;
         case 3:
