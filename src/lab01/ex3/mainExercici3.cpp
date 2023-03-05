@@ -6,7 +6,6 @@
 using namespace std;
 void get_info(int &comptador)
 {
-    comptador++;
     string nom;
     int anyNaixement, nombreAsignatures = 0;
     cout << "Estudiant " << comptador << endl;
@@ -17,6 +16,7 @@ void get_info(int &comptador)
     cout << "Asignatures: ";
     cin >> nombreAsignatures;
     Estudiant es = Estudiant(nom, anyNaixement, nombreAsignatures);
+    comptador++;
     es.print();
 };
 int main(int argc, char const *argv[])
@@ -42,7 +42,7 @@ int main(int argc, char const *argv[])
             {
                 get_info(comptador);
             }
-            catch (const invalid_argument& ex)
+            catch (const invalid_argument &ex)
             {
                 cerr << ex.what() << endl;
             };

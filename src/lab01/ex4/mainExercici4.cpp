@@ -10,7 +10,6 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
 {
     if (choice == 'e' || choice == 'E')
     {
-        comptadorEstudiants++;
         string nom;
         int anyNaixement, nombreAsignatures = 0;
         cout << "Estudiant " << comptadorEstudiants << endl;
@@ -21,11 +20,11 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
         cout << "Asignatures: ";
         cin >> nombreAsignatures;
         Estudiant es = Estudiant(nom, anyNaixement, nombreAsignatures);
+        comptadorEstudiants++;
         es.print();
     }
     else if (choice == 'p' || choice == 'P')
     {
-        comptadorProfessors++;
         string nom;
         int anyNaixement = 0;
         cout << "Professor " << comptadorProfessors << endl;
@@ -34,6 +33,7 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
         cout << "Any naixement?: ";
         cin >> anyNaixement;
         Professor p = Professor(nom, anyNaixement);
+        comptadorProfessors++;
         p.print();
     }
 };

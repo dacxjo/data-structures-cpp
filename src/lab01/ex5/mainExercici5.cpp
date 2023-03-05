@@ -11,7 +11,6 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
 {
     if (choice == 'e' || choice == 'E')
     {
-        comptadorEstudiants++;
         string nom;
         int anyNaixement, nombreAsignatures = 0;
         cout << "Estudiant " << comptadorEstudiants << endl;
@@ -22,11 +21,11 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
         cout << "Asignatures: ";
         cin >> nombreAsignatures;
         Estudiant es = Estudiant(nom, anyNaixement, nombreAsignatures);
+        comptadorEstudiants++;
         es.print();
     }
     else if (choice == 'p' || choice == 'P')
     {
-        comptadorProfessors++;
         string nom;
         int anyNaixement = 0;
         cout << "Professor " << comptadorProfessors << endl;
@@ -35,6 +34,7 @@ void add_person(int &comptadorEstudiants, int &comptadorProfessors, char choice)
         cout << "Any naixement?: ";
         cin >> anyNaixement;
         Professor p = Professor(nom, anyNaixement);
+        comptadorProfessors++;
         p.print();
     }
 };
@@ -48,10 +48,9 @@ void show_resume(int comptadorEstudiants, int comptadorProfessors)
 void add_by_file(string path, int &comptadorEstudiants, int &comptadorProfessors)
 {
 
-    ifstream file;
-    file.open(path);
+    ifstream file(path);
     if (!file)
-        throw std::runtime_error("Could not open file");
+        throw runtime_error("Could not open file");
     char type;
     string nom;
     int anyNaixement, nombreAsignatures = 0;
@@ -61,19 +60,19 @@ void add_by_file(string path, int &comptadorEstudiants, int &comptadorProfessors
         file >> type;
         if (type == 'e' || type == 'E')
         {
-            comptadorEstudiants++;
             file >> nom;
             file >> anyNaixement;
             file >> nombreAsignatures;
             Estudiant es = Estudiant(nom, anyNaixement, nombreAsignatures);
+            comptadorEstudiants++;
             es.print();
         }
         else
         {
-            comptadorProfessors++;
             file >> nom;
             file >> anyNaixement;
             Professor p = Professor(nom, anyNaixement);
+            comptadorProfessors++;
             p.print();
         }
     }
