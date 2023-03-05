@@ -1,3 +1,10 @@
+/*
+ * Estructura de datos
+ * Implementacion de la clase  "Professor"
+ * Ocupe las funciones de la libreria ctime para obtener al año actual
+ * @author: David de Jesus Blandon Torrez
+ */
+
 #include <iostream>
 #include "Professor.h"
 #include <ctime>

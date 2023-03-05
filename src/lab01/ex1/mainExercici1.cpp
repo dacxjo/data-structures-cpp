@@ -1,3 +1,9 @@
+/*
+ * Estructura de datos
+ * Main File del ejercicio numero 1 - Laboratorio 1
+ * @author: David de Jesus Blandon Torrez
+ */
+
 #include <iostream>
 using namespace std;
 int main(int argc, char const *argv[])

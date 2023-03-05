@@ -1,3 +1,9 @@
+/*
+ * Estructura de datos
+ * Definiciones de la clase  "Professor"
+ * @author: David de Jesus Blandon Torrez
+ */
+
 #include <string>
 class Professor
 {

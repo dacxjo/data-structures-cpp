@@ -1,3 +1,9 @@
+/*
+ * Estructura de datos
+ * Implementacion de la clase  "Estudiant"
+ * @author: David de Jesus Blandon Torrez
+ */
+
 #include <iostream>
 #include "Estudiant.h"
 #include <ctime>

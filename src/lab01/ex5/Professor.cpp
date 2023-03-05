@@ -1,3 +1,9 @@
+/*
+ * Estructura de datos
+ * Implementacion de la clase  "Professor"
+ * @author: David de Jesus Blandon Torrez
+ */
+
 #include <iostream>
 #include "Professor.h"
 #include <ctime>

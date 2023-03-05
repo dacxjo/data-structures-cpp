@@ -1,3 +1,9 @@
+/*
+ * Estructura de datos
+ * Main File del ejercicio numero 2 - Laboratorio 1
+ * @author: David de Jesus Blandon Torrez
+ */
+
 #include <iostream>
 #include <vector>
 using namespace std;
