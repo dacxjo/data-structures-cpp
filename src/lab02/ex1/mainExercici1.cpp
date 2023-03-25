@@ -6,42 +6,96 @@ using namespace std;
 void print_err(string err)
 {
     cerr << "\033[1;31m"
-         << "Error: " << err << "\033[0m\n"
+         << "Error: " << err << "\033[0m"
          << endl;
 }
-int main(int argc, char const *argv[])
+
+void casProva1()
 {
-    int option;
-    vector<string> arr_options = {"Inserir element a la pila", "Treure element de la pila", "Consultar el top de la pila", "Imprimir tot el contingut de la PilaEstatica", "Imprimir la posició del top de la pila", "Sortir"};
-    PilaEstatica pila(10);
-    PilaEstatica pila2 = pila;
-    PilaEstatica pila3({2, 3, 1, 23, 32});
+    PilaEstatica p(3);
+    p.afegirElement(10);
+    p.afegirElement(11);
+    cout << "Front:" << p.elementFront() << endl;
+    p.afegirElement(12);
     try
     {
-        pila.afegirElement(5);
-        pila.afegirElement(1);
-        pila.afegirElement(3);
-        pila.imprimeix();
-        pila.treureElement();
-        cout << "----" << endl;
-        pila.imprimeix();
-        pila.afegirElement(112);
-        cout << "----" << endl;
-        pila.imprimeix();
+        p.afegirElement(13);
     }
     catch (const out_of_range &ex)
     {
         print_err(ex.what());
     }
-
-    /* do
+    p.imprimeix();
+    cout << "Front:" << p.elementFront() << endl;
+    p.treureElement();
+    p.afegirElement(14);
+    p.imprimeix();
+    cout << "Front:" << p.elementFront() << endl;
+    p.treureElement();
+    p.treureElement();
+    p.treureElement();
+    try
+    {
+        p.treureElement();
+    }
+    catch (const out_of_range &ex)
+    {
+        print_err(ex.what());
+    }
+}
+int main(int argc, char const *argv[])
+{
+    int option;
+    vector<string> arr_options = {"Inserir element a la pila", "Treure element de la pila", "Consultar el top de la pila", "Imprimir tot el contingut de la PilaEstatica", "Imprimir la posició del top de la pila", "Sortir"};
+    casProva1();
+    cout << "============" << endl;
+    PilaEstatica pilaMenu;
+    do
     {
         for (int i = 0; i < arr_options.size(); i++)
         {
             cout << i + 1 << "." << arr_options[i] << endl;
         }
-        cin >> option;
 
-    } while (option != 6); */
+        try
+        {
+            cin >> option;
+            switch (option)
+            {
+            case 1:
+                int nouElement;
+                cout << "Ingrese el element: " << endl;
+                cin >> nouElement;
+                pilaMenu.afegirElement(nouElement);
+                break;
+            case 2:
+                pilaMenu.treureElement();
+                break;
+            case 3:
+                if (pilaMenu.esBuida())
+                {
+                    throw out_of_range("EXCEPTION: L'estructura està buida");
+                }
+                cout << "Top: " << pilaMenu.elementFront() << endl;
+                break;
+            case 4:
+                pilaMenu.imprimeix();
+                break;
+            case 5:
+                if (pilaMenu.esBuida())
+                {
+                    throw out_of_range("EXCEPTION: L'estructura està buida");
+                }
+                cout << "Posicio del top: " << pilaMenu.tamany() - 1 << endl;
+                break;
+            }
+        }
+        catch (const out_of_range &ex)
+        {
+            print_err(ex.what());
+        }
+
+    } while (option != 6);
+
     return 0;
 }
